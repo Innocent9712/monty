@@ -15,6 +15,7 @@ int get_op_func(char *cmd)
 		{"pint", _pint},
 		{"pop", _pop},
 		{"swap", _swap},
+		{"add", _add},
 		{NULL, NULL}
 	};
 
