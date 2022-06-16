@@ -9,7 +9,12 @@
 void _push(stack_t **stack, unsigned int line_number)
 {
 	if (my_glob_vars.num && is_valid_num(my_glob_vars.num))
-		add_dnodeint(stack, atoi(my_glob_vars.num));
+	{
+		if (my_glob_vars.mode == 0)
+			add_dnodeint(stack, atoi(my_glob_vars.num));
+		else
+			add_dnodeint_end(stack, atoi(my_glob_vars.num));
+	}
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);

@@ -64,12 +64,12 @@ void _pchar(stack_t **stack, unsigned int line_number)
  */
 
 
-void _pstr(stack_t **stack,__attribute__((unused))unsigned int line_number)
+void _pstr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp;
 
 	temp = *stack;
-	while(temp && stack)
+	while (temp && stack)
 	{
 		if (temp->n < 1 || temp->n > 127)
 			break;
@@ -87,9 +87,24 @@ void _pstr(stack_t **stack,__attribute__((unused))unsigned int line_number)
  */
 
 
-void _rotl(__attribute__((unused))stack_t **stack,
-	    __attribute__((unused))unsigned int line_number)
-{}
+void _rotl(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	stack_t *temp, *current;
+
+	if (!*stack || !(*stack)->next)
+		return;
+	temp = *stack;
+	current = *stack;
+
+	while (current->next != NULL)
+		current = current->next;
+
+	*stack = (*stack)->next;
+	current->next = temp;
+	temp->prev = current;
+	temp->next = NULL;
+
+}
 
 
 /**
@@ -98,6 +113,21 @@ void _rotl(__attribute__((unused))stack_t **stack,
  * @line_number: current line of file
  */
 
-void _rotr(__attribute__((unused))stack_t **stack,
-	    __attribute__((unused))unsigned int line_number)
-{}
+void _rotr(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	stack_t *temp, *current;
+
+	if (!*stack || !(*stack)->next)
+		return;
+
+	current = *stack;
+
+	while (current->next != NULL)
+		current = current->next;
+
+	temp = current->prev;
+	temp->next = NULL;
+	current->next = *stack;
+	(*stack)->prev = current;
+	*stack = current;
+}

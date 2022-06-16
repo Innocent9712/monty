@@ -34,6 +34,7 @@ int main(int ac, char **av)
 	my_glob_vars.num = NULL;
 	my_glob_vars.head = NULL;
 	my_glob_vars.line_num = 0;
+	my_glob_vars.mode = 0;
 
 	line_size = getline(&buffer, &buff_length, file_descriptor);
 	while (line_size >= 0)

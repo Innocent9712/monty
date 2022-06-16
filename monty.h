@@ -44,6 +44,7 @@ typedef struct instruction_s
  */
 typedef struct variables
 {
+	int mode;
 	char *num;
 	stack_t *head;
 	unsigned int line_num;
@@ -68,7 +69,10 @@ void _pchar(stack_t **stack, unsigned int line_number);
 void _pstr(stack_t **stack, unsigned int line_number);
 void _rotl(stack_t **stack, unsigned int line_number);
 void _rotr(stack_t **stack, unsigned int line_number);
+void _stack(stack_t **stack, unsigned int line_number);
+void _queue(stack_t **stack, unsigned int line_number);
 stack_t *add_dnodeint(stack_t **head, int n);
+stack_t *add_dnodeint_end(stack_t **head, int n);
 void free_stack_t(stack_t *head);
 
 #endif /* MONTY_H */
