@@ -25,6 +25,10 @@ void _push(stack_t **stack, unsigned int line_number)
 
 void _pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
-	if (stack)
-		print_dlistint(*stack);
+	stack_t *temp = *stack;
+	while (stack && temp)
+	{
+		printf("%d\n", temp->n);
+		temp = temp->next;
+	}
 }

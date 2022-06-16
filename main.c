@@ -1,6 +1,5 @@
 #define _GNU_SOURCE
 #include "monty.h"
-#include <string.h>
 
 global_vars my_glob_vars;
 
@@ -14,7 +13,6 @@ global_vars my_glob_vars;
 
 int main(int ac, char **av)
 {
-
 	char *buffer = NULL, *delim = " \t\n", *token = NULL;
 	size_t buff_length = 0;
 	int  line_size;
@@ -49,10 +47,9 @@ int main(int ac, char **av)
 		}
 		line_size = getline(&buffer, &buff_length, file_descriptor);
 	}
-
 	free(buffer);
 	buffer = NULL;
 	fclose(file_descriptor);
 	free_stack_t(my_glob_vars.head);
-	return (EXIT_SUCCESS);
+	return (0);
 }

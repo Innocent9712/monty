@@ -15,7 +15,7 @@ int get_op_func(char *cmd)
 		{NULL, NULL}
 	};
 
-	while (funcs[i].opcode)
+	while (funcs[i].opcode && cmd)
 	{
 		if (strcmp(funcs[i].opcode, cmd) == 0)
 		{

@@ -12,11 +12,14 @@ stack_t *add_dnodeint(stack_t **head, int n)
 {
 	stack_t *temp;
 
+	if (!head)
+		return (NULL);
+
 	temp = malloc(sizeof(stack_t));
 
 	if (temp == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	temp->n = n;
@@ -26,40 +29,4 @@ stack_t *add_dnodeint(stack_t **head, int n)
 		(*head)->prev = temp;
 	*head = temp;
 	return (temp);
-}
-
-/**
- * print_dlistint - print every item in a linked list h
- * @h: head of linked list
- *
- * Return: number of nodes in linked list
- */
-
-size_t print_dlistint(const stack_t *h)
-{
-	size_t num;
-	stack_t *current;
-
-	if (h == NULL)
-		return (0);
-
-	current = malloc(sizeof(stack_t));
-	if (current == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed");
-		exit(EXIT_FAILURE);
-	}
-	current->prev = h->prev;
-	current->n = h->n;
-	current->next = h->next;
-	num = 0;
-	while (current != NULL)
-	{
-		printf("%d\n", current->n);
-		num++;
-		current = current->next;
-	}
-
-	free(current);
-	return (num);
 }
