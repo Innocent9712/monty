@@ -55,6 +55,7 @@ int is_valid_num(char *str);
 int get_op_func(char *cmd);
 void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
 stack_t *add_dnodeint(stack_t **head, int n);
 void free_stack_t(stack_t *head);
 

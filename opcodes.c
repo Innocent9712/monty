@@ -12,6 +12,7 @@ int get_op_func(char *cmd)
 	instruction_t funcs[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
 
