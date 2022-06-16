@@ -53,5 +53,6 @@ int main(int ac, char **av)
 	free(buffer);
 	buffer = NULL;
 	fclose(file_descriptor);
+	free_stack_t(my_glob_vars.head);
 	return (EXIT_SUCCESS);
 }

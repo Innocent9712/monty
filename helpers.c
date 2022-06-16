@@ -23,3 +23,20 @@ int is_valid_num(char *str)
 
 	return (1);
 }
+
+/**
+ * free_stack_t - free memory being used by the stack
+ * @head: head of the stack
+ */
+
+void free_stack_t(stack_t *head)
+{
+	stack_t *temp;
+
+	while (head)
+	{
+		temp = head;
+		head = head->next;
+		free(temp);
+	}
+}
