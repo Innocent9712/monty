@@ -49,7 +49,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 
 	if ((*stack)->n < 32 || (*stack)->n > 126)
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range",
+		fprintf(stderr, "L%d: can't pchar, value out of range\n",
 			line_number);
 		exit(EXIT_FAILURE);
 	}
