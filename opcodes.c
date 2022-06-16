@@ -24,7 +24,7 @@ int get_op_func(char *cmd)
 		}
 		i++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s",
+	fprintf(stderr, "L%d: unknown instruction %s\n",
 		my_glob_vars.line_num, cmd);
 	exit(EXIT_FAILURE);
 }
