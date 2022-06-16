@@ -50,3 +50,27 @@ void _pint(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", (*stack)->n);
 }
+
+
+/**
+ * _pop - remove the top value in a stack
+ * @stack: stack to print
+ * @line_number: current line of file
+ */
+void _pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (!*stack)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	if ((*stack)->next)
+		*stack = (*stack)->next;
+	else
+		*stack = NULL;
+	free(temp);
+}

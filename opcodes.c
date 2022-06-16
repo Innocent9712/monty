@@ -13,6 +13,7 @@ int get_op_func(char *cmd)
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pop", _pop},
 		{NULL, NULL}
 	};
 
