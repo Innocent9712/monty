@@ -74,3 +74,23 @@ void _pop(stack_t **stack, unsigned int line_number)
 		*stack = NULL;
 	free(temp);
 }
+
+/**
+ * _swap - switch positions of two values in a stack
+ * @stack: stack to print
+ * @line_number: current line of file
+ */
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+
+
+	(*stack)->n ^= (*stack)->next->n;
+	(*stack)->next->n ^= (*stack)->n;
+	(*stack)->n ^= (*stack)->next->n;
+}
