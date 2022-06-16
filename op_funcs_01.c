@@ -11,7 +11,10 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (is_valid_num(my_glob_vars.num))
 		add_dnodeint(stack, atoi(my_glob_vars.num));
 	else
+	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
